@@ -32,10 +32,10 @@ function paintToCanvas() {
 		//gives us array of 640x480x4 (rgba) ~ 1,2 mln
 
 		//change pixels:
-		//pixels = redEffect(pixels);
+		pixels = redEffect(pixels);
 	  //pixels = rgbSplit(pixels);
 		//ctx.globalAlpha = 0.3; //some original are seen through
-		pixels = greenScreen(pixels);
+		//pixels = greenScreen(pixels);
 		//put pixels back:
 		ctx.putImageData(pixels, 0, 0);
 		}, 16);
@@ -48,7 +48,7 @@ function takePhoto() {
 
 	//take the data out of the canvas
 	const data = canvas.toDataURL('image/jpeg');
-	console.log(data);
+	//console.log(data);
 	const link = document.createElement('a');
 	link.href = data;
 	link.setAttribute('download', 'handsome');
@@ -86,7 +86,7 @@ function greenScreen(pixels) {
     levels[input.name] = input.value;
   });
 
-  console.log(levels);
+ // console.log(levels);
 
   for (i = 0; i < pixels.data.length; i = i + 4) {
     red = pixels.data[i + 0];
